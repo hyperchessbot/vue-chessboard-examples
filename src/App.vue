@@ -2,13 +2,7 @@
   <div id="app" ref="board">    
     <input style="display:none;" type="text" id="fen"/>
     <button id="clickbutton" style="display:none;" @click="setFen()"/>
-    <chessboard :fen="currentFen"/>    
-    <div class="show-fen" v-for="fen in fens" :key="fen + '-binded'">    
-    Set FEN to 
-        <button class="button is-light show-fen" @click="setFen(fen)">
-        {{fen}}
-        </button>
-    </div>
+    <chessboard :fen="currentFen"/>        
   </div>
 </template>
 
