@@ -1,0 +1,20 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/hyperchessbot/vue-chessboard-examples.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "upstream"]
+	url = https://github.com/vitogit/vue-chessboard-examples.git
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+[remote "github"]
+	url = https://github.com/hyperchessbot/vue-chessboard-examples.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "gitlab"]
+	url = https://gitlab.com/hyperchessbotauthor/vue-chessboard-examples.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

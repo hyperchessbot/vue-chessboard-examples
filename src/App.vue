@@ -1,44 +1,6 @@
 <template>
-  <div id="app">
-    <h1>Simple Chessboard with legal moves</h1>
+  <div id="app">    
     <chessboard/>
-
-    <h1>Simple Chessboard with free moves</h1>
-    <chessboard :free="true"/>
-
-    <h1>Simple Chessboard that shows threats for current position and player</h1>
-    <chessboard :showThreats="true"/>
-
-    <h1>Fen binded to the chessboard (load position when click on a new position)</h1>
-    <chessboard :fen="currentFen"/>
-    <button class="button is-light" @click="loadFen(fen)" v-for="fen in fens"  :key="fen + '-binded'">
-      {{fen}}
-    </button>
-
-    <h1>Chessboard with binded onmove method. Shows threats on text area</h1>
-    <chessboard @onMove="showInfo"/>
-    <div>
-      {{this.positionInfo}}
-    </div>
-
-    <h1>Chessboard with onpromote callback. </h1>
-    It will show you a simple confirmation box asking if you want to promote to queen or rook.
-    You can use a fancy piece selector instead of this simple confirmation box.
-    <chessboard :onPromotion="promote"/>
-
-    <h1>Multiple Chessboards with different fens. </h1>
-    <div v-for="fen in fens" :key="fen">
-       <chessboard :fen="fen" />
-    </div>
-
-    <h1>Extended Component (Play vs random AI). </h1>
-    <p> You can extend the chessboard component to add new methods</p>
-    <newboard/>
-
-    <h1>Fully free piece movement. </h1>
-    <p> You can extend the chessboard component to use all  <a href='https://github.com/ornicar/chessground/blob/master/src/config.ts'>chessgrounds configurations</a></p>
-    <editor/>
-
   </div>
 </template>
 
