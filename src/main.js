@@ -150,6 +150,6 @@ async function play(){
     })
 }
 
-showScore("Welcome to Opening Trainer! Make your first move!")
+showScore("Welcome to Lichess Opening Trainer! Make your first move!")
 
 setTimeout(function(){play()}, 0)
