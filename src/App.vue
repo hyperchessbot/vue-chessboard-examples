@@ -7,15 +7,11 @@
 <script>
 import {chessboard} from 'vue-chessboard'
 import 'vue-chessboard/dist/vue-chessboard.css'
-import newboard from './newboard.vue'
-import editor from './editor.vue'
 
 export default {
   name: 'app',
   components: {
     chessboard,
-    newboard,
-    editor
   },
   data () {
     return {
