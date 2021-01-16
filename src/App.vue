@@ -1,8 +1,9 @@
 <template>
-  <div id="app" ref="board">    
+  <div id="app">    
     <input style="display:none;" type="text" id="fen"/>
     <button id="clickbutton" style="display:none;" @click="setFen()"/>
-    <chessboard :fen="currentFen"/>        
+    <input style="display:none;" type="text" id="showmove"/>
+    <chessboard :fen="currentFen" @onMove="showMove"/>        
   </div>
 </template>
 
@@ -22,8 +23,9 @@ export default {
     }
   },
   methods: {
-    showInfo(data) {
-      this.positionInfo = data
+    showMove(data) {
+      const blob = JSON.stringify(data)
+      document.getElementById("showmove").value = blob
     },    
     setFen(fen){
         const inp = document.getElementById("fen")        
