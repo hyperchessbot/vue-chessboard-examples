@@ -1,9 +1,10 @@
 <template>
   <div id="app">    
+    <div id="score" class="score"></div>
     <input style="display:none;" type="text" id="fen"/>
     <button id="clickbutton" style="display:none;" @click="setFen()"/>
     <input style="display:none;" type="text" id="showmove"/>
-    <chessboard :fen="currentFen" @onMove="showMove"/>        
+    <chessboard class="board" :fen="currentFen" @onMove="showMove"/>        
   </div>
 </template>
 

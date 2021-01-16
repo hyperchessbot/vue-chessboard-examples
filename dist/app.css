@@ -1,0 +1,29 @@
+.score {
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffa;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.board {
+    margin: 20px;
+}
+
+.bonus {
+    font-weight: bold;
+    color: #070;
+    font-size: 20px;
+}
+
+.standing {
+    font-weight: bold;
+    color: #007;
+    font-size: 20px;
+}
+
+.rank {
+    font-weight: bold;
+    color: #707;
+    font-size: 20px;
+}

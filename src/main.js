@@ -67,6 +67,12 @@ function fetchBook(fen){
 
 let depth = 0
 
+let score = 0
+
+function showScore(text){
+    document.getElementById("score").innerHTML = text
+}
+
 async function play(){
     const currFen = posToFen(pos)
 
@@ -82,8 +88,11 @@ async function play(){
         let index = json.moves.findIndex(item => item.san == san)
 
         if(index < 0){
-            setFen(startFen)
             window.alert("This move is not among top 12 choices. You lose. Lets start again ...")
+            setFen(startFen)
+            depth = 0
+            showScore("Make your opening move!")
+            score = 0
 
             setTimeout(function(){play()}, 0)
 
@@ -91,17 +100,47 @@ async function play(){
         }else{            
             setFen(data.fen)
             depth++
+
+            let bonus = 12 - index
+
+            score = score + bonus
+
+            showScore(`You made the move ranked <span class="rank">${index + 1}</span> . You receive <span class="bonus">${bonus}</span> points. Your score is <span class="standing">${score}</span> .`)
         }
 
-        if(depth >= 5){
-            window.alert("Well done.")
-
+        if(depth >= 12){
+            window.alert(`Well done! Your final score is ${score} .`)
+            showScore(`Your final score is <span class="standing">${score}</span> . Make your first move!`)
             setFen(startFen)
+            depth = 0
+            showScore(`Your final score is <span class="standing">${score}</span> . Make your first move!`)
+            score = 0
+
+            setTimeout(function(){play()}, 0)
         }else{
             fetchBook(posToFen(pos)).then(json => {
-                const m = json.moves[Math.floor(Math.random() * json.moves.length)]
+                let total = 0
 
-                makeUciMove(pos, m.uci)
+                for(let item of json.moves){                    
+                    total += item.white + item.draws + item.black
+                }
+
+                let rand = Math.floor(Math.random() * total)
+
+                total = 0
+
+                let selected = null
+
+                for(let item of json.moves){                    
+                    total += item.white + item.draws + item.black
+                    if(total >= rand){
+                        selected = item
+
+                        break
+                    }
+                }
+
+                makeUciMove(pos, selected.uci)
 
                 setFen(posToFen(pos))
 
@@ -110,5 +149,7 @@ async function play(){
         }
     })
 }
+
+showScore("Welcome to Opening Trainer! Make your first move!")
 
 setTimeout(function(){play()}, 0)
