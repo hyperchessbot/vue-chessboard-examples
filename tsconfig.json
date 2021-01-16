@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "moduleResolution": "node",
+    "target": "ES2016",
+    "lib": ["ES2016"],
+    "module": "commonjs",
+    "outDir": "",
+    "declarationDir": "",
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src"]
+}
